@@ -1,0 +1,44 @@
+<%= render 'navbar'%>
+<p style="color: green"><%= notice %></p>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+      <div class="card my-5 shadow">
+        <div class="card-body">
+          <div class="row mt-8">
+            <div class="col-9">
+              <h2>Emplopyee Details</h2><br>
+            </div>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @employees.each do |employee| %>
+                  <tr>
+                    <th><%= employee.id%></th>
+                    <td><%= employee.name%></td>
+                    <td><%= employee.age%></td>
+                    <td><%= link_to "Edit", edit_employee_path(employee) %> </td>
+                  </tr>
+                  <% end %>
+              </tbody>
+            </table>
+              <div class="col-3 text-end">
+                <%= button_to 'Assign Projects', assign_projects_employees_path, method: :post, class: "btn btn-primary" %>
+              </div>
+          </div>
+        </div>
+        <div class="pagination justify-content-center">
+          <%= paginate @employees, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm", nav_class: "d-inline-b" %>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
