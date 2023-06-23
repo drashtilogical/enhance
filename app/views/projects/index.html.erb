@@ -1,14 +1,37 @@
+<%= render 'employees/navbar'%>
 <p style="color: green"><%= notice %></p>
-
-<h1>Projects</h1>
-
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 mx-auto">
+      <div class="card my-5 shadow">
+        <div class="card-body">
+          <div class="row mt-8">
+            <div class="col-9">
+              <h2>Project Details</h2><br>
+            </div>
+              <%= link_to "New project", new_project_path %>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Project Name</th>
+                    <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @projects.each do |project| %>
+                  <tr>
+                    <th><%= project.id%></th>
+                    <td><%= project.project_name%></td>
+                    <td><%= link_to "Edit", edit_project_path(project) %> </td>
+                  </tr>
+                  <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
 </div>
-
-<%= link_to "New project", new_project_path %>
