@@ -24,4 +24,6 @@ test:
 
 production:
   <<: *default
-  database: enhance_production
+  username: <%= ENV['USER_NAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
