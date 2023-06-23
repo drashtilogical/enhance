@@ -24,6 +24,6 @@ test:
 
 production:
   <<: *default
-  username: <%= ENV['USER_NAME'] %>
-  password: <%= ENV['PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  username: company1_production_user
+  password: vg4JDWXXMO9ZnjcU4MOQPTLaTtYs9cg0
+  url: postgres://company1_production_user:vg4JDWXXMO9ZnjcU4MOQPTLaTtYs9cg0@dpg-ciaj7op8g3nden4q5s6g-a/company1_production
